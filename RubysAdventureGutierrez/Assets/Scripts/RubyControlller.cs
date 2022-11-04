@@ -13,10 +13,18 @@ public class RubyControlller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+       //Create 2 variables to use the unity built in axes
         float horizontal = Input.GetAxis("Horizontal");
-        Debug.Log(horizontal);
+        float vertical = Input.GetAxis("Vertical");
+
+        //Create our movement vector
         Vector2 position = transform.position;
-        position.x = position.x + 0.1f * horizontal;
+
+        //Create horizontal and vertical movement
+        position.x = position.x + 3.0f * horizontal * Time.deltaTime;
+        position.y = position.y + 3.0f * vertical * Time.deltaTime;
+
+        //Setting new position
         transform.position = position;
     }
 }
